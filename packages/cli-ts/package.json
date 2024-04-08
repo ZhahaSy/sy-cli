@@ -1,0 +1,22 @@
+{
+  "name": "cli-ts",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "v_zhangshuangyi <v_zhangshuangyi@bilibili.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/cli-ts.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://registry.npm.bilibili.co/"
+  },
+  "scripts": {
+    "test": "node ./__tests__/cli-ts.test.js"
+  }
+}
