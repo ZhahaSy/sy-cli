@@ -2,8 +2,7 @@ const fs = require('fs-extra') // 引入fs-extra模块，用于文件操作
 const path = require('path') // 引入path模块，用于处理文件路径
 const chalk = require('chalk') // 引入chalk模块，用于在控制台中输出彩色文本
 const { prompt } = require('inquirer'); // 引入inquirer模块的prompt方法，用于创建交互式命令行界面
-
-const promptOptions = require('./utils/promptOptions/index') // 引入自定义的prompt选项配置
+const Asker = require('./Asker');
 
 // 定义ask函数，用于提问并获取用户输入
 const ask = async (questions) => {
@@ -46,9 +45,9 @@ const create = async (projectName, options) => {
     ]
   }]);
 
-  // 根据用户选择的项目类型，获取相应的配置选项并显示
-  const result = await ask(promptOptions[projectType]);
-  console.log('配置', { projectType, ...result });
+  const asker = new Asker(projectType, projectName, options)
+  console.log(asker);
+  asker.ask();
 }
 
 module.exports = create ; // 导出create函数
